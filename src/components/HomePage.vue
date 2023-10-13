@@ -14,7 +14,11 @@
         </div>
 
         <div id="main-right">
+            <div id="blur-circle"></div>
 
+            <img src="src/assets/home-photo-1.png" alt="Home photo 1" id="photo-1">
+            <img src="src/assets/home-photo-2.png" alt="Home photo 2" id="photo-2">
+            <img src="src/assets/home-photo-3.png" alt="Home photo 3" id="photo-3">
         </div>
     </main>
 </template>
@@ -34,9 +38,10 @@
         margin-top: 200px;
         padding: 0 150px;
         display: flex;
+        position: relative;
     }   
 
-    #main-left{
+    #main-left, #main-right{
         width: 50%;
     }
 
@@ -81,6 +86,35 @@
         font-size: 20px;
         font-weight: 800;
         text-align: right;
+    }
+    
+    #blur-circle{
+        background: rgba(98, 68, 219, 0.20);
+        width: 1126px;
+        height: 1125px;
+        filter: blur(150px);
+        position: absolute;
+        top: -300px;
+        right: 0;
+        border-radius: 50%;
+    }
+
+    #main-right img{
+        position: absolute;
+    }
+
+    img#photo-1{
+        top: -100px;
+        right: 600px;
+    }
+    
+    img#photo-2{
+        right: 150px;
+    }
+
+    img#photo-3{
+        right: 670px;
+        bottom: -260px;
     }
 
 </style>
