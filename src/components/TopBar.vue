@@ -1,0 +1,43 @@
+<template>
+    <header>
+        <div id="topbar">
+            <a href="/" id="logo">moluj.pl</a>
+            <nav>
+                <a href="/">Oferty pracy</a>
+                <a href="/">Kreator CV</a>
+            </nav>
+        </div>
+    </header>
+</template>
+
+<script>
+
+</script>
+
+<style>
+    #topbar{
+        height: 60px;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+        padding: 0 150px;
+        display: flex;
+        align-items: center;
+    }   
+
+    #topbar a{
+        text-decoration: none;
+    }
+
+    a#logo{
+        color: #6244DB;
+        font-size: 35px;
+        font-weight: 700;
+    }
+
+    nav a{
+        padding: 0 0 0 60px;
+        color: #393939;
+        font-weight: 700;
+        font-size: 15px;
+    }
+    
+</style>
