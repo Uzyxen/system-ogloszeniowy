@@ -6,6 +6,11 @@
                 <h2>Sprawdzonych ofert pracy</h2>
                 <h3>od najlepszych pracodawców</h3>
             </div>
+
+            <div id="button-box">
+                <button id="search-for-offers">Szukaj ofert</button>
+                <button id="find-out-more">Dowiedz się więcej</button>
+            </div>
         </div>
 
         <div id="main-right">
@@ -37,6 +42,31 @@
 
     div#main-text{
         width: 560px;
+    }
+
+    #button-box{
+        margin-top: 80px;
+        display: flex;
+        gap: 30px;
+    }
+
+    #button-box button{
+        cursor: pointer;
+        width: 250px;
+        height: 60px;
+        font-weight: 700;
+    }
+
+    #search-for-offers{
+        background-color: #6244DB;
+        color: #fff;
+        font-size: 25px;
+    }
+
+    #find-out-more{
+        border: 4px solid #6244DB;
+        color: #6244DB;
+        font-size: 20px;
     }
 
     h2{
