@@ -89,7 +89,7 @@
     }
     
     #blur-circle{
-        background: rgba(98, 68, 219, 0.20);
+        background: rgba(98, 68, 219, 0.16);
         width: 1126px;
         height: 1125px;
         filter: blur(150px);

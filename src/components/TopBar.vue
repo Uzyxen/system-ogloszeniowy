@@ -20,6 +20,7 @@
 
 <style>
     #topbar{
+        z-index: 999;
         height: 60px;
         box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
         padding: 0 150px;

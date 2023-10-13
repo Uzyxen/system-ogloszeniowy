@@ -6,7 +6,7 @@
     export default{
         data(){
             return {
-                counter: Math.floor(Math.random() * (120000 - 80000 + 1)) + 80000
+                counter: 92518
             }
         }
     }
