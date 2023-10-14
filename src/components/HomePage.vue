@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <article>
         <div id="main-left">
             <OfferCounter/>
             <div id="main-text">
@@ -25,7 +25,7 @@
             <img src="src/assets/home-photo-2.png" alt="Home photo 2" id="photo-2">
             <img src="src/assets/home-photo-3.png" alt="Home photo 3" id="photo-3">
         </div>
-    </main>
+    </article>
 </template>
 
 <script>
@@ -38,12 +38,14 @@
     }
 </script>
 
-<style>
-    main{
+<style scoped>
+    article{
         margin-top: 200px;
         padding: 0 150px;
         display: flex;
         position: relative;
+        height: 100vh;
+
     }   
 
     #main-left, #main-right{
@@ -119,7 +121,7 @@
 
     img#photo-3{
         right: 670px;
-        bottom: -260px;
+        top: 260px;
     }
 
     img#abstract-1{
@@ -129,7 +131,7 @@
 
     img#abstract-2{
         right: 190px;
-        bottom: -210px;
+        top: 350px;
     }
 
     img#abstract-3{
