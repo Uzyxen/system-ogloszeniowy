@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import OfferCounter from './OfferCounter.vue';
+    import OfferCounter from '../components/OfferCounter.vue';
 
     export default{
         components: {

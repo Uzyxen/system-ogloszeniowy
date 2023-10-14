@@ -1,10 +1,10 @@
 <template>
     <header>
         <div id="topbar">
-            <a href="/" id="logo">moluj.pl</a>
+            <router-link id="logo" to="/">moluj.pl</router-link>
             <nav>
-                <a href="/">Oferty pracy</a>
-                <a href="/">Kreator CV</a>
+                <router-link to="/praca">Oferty pracy</router-link>
+                <router-link to="/kreator-cv">Kreator CV</router-link>
             </nav>
 
             <div id="my-account">
