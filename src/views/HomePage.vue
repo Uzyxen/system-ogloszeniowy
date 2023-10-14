@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <section>
         <div id="main-left">
             <OfferCounter/>
             <div id="main-text">
@@ -8,8 +8,8 @@
             </div>
 
             <div id="button-box">
-                <button id="search-for-offers">Szukaj ofert</button>
-                <button id="find-out-more">Dowiedz się więcej</button>
+                <button id="search-for-offers"><a href="#search-for-offers-section">Szukaj ofert</a></button>
+                <button id="find-out-more"><a href="">Dowiedz się więcej</a></button>
             </div>
         </div>
 
@@ -25,7 +25,7 @@
             <img src="src/assets/home-photo-2.png" alt="Home photo 2" id="photo-2">
             <img src="src/assets/home-photo-3.png" alt="Home photo 3" id="photo-3">
         </div>
-    </article>
+    </section>
 </template>
 
 <script>
@@ -39,7 +39,7 @@
 </script>
 
 <style scoped>
-    article{
+    section{
         margin-top: 200px;
         padding: 0 150px;
         display: flex;
@@ -63,10 +63,27 @@
     }
 
     #button-box button{
-        cursor: pointer;
         width: 250px;
         height: 60px;
+        padding: 0;
+    }
+
+    #button-box button a{
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
         font-weight: 700;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #button-box button#find-out-more a{
+        width: calc(100% - 8px);
+        height: calc(100% - 8px);
     }
 
     #search-for-offers{
@@ -75,9 +92,9 @@
         font-size: 25px;
     }
 
-    #find-out-more{
+    #find-out-more a{
         border: 4px solid #6244DB;
-        color: #6244DB;
+        color: #6244DB !important;
         font-size: 20px;
     }
 

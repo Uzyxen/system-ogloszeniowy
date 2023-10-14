@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <section id="search-for-offers-section">
         <h2>Szukanie ofert</h2>
         <div id="search-box">
             <form action="">
@@ -13,22 +13,24 @@
                 <button>Szukaj</button>
             </form>
         </div>
-    </article>
+    </section>
 </template>
 
 <script>
 
 </script>
 
-<style>
-    article{
+<style scoped>
+    section{
         height: 100vh;
-        padding: 0 150px;
+        padding: 50px 150px 0;
+        position: relative;
+        background-color: #6244DB;
     }
 
     h2{
         text-align: center;
-        color: #6244DB;
+        color: #fff;
         font-size: 35px;
         font-weight: 800;
     }
