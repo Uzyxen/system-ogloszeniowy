@@ -125,7 +125,7 @@
     }
 
     img#abstract-1{
-        left: 900px;
+        right: 880px;
         top: 40px;
     }
 
@@ -147,6 +147,13 @@
     img#abstract-5{
         right: 600px;
         top: 500px;
+    }
+
+    @media (min-width: 1920px){
+        article{
+            margin: 200px auto 0;
+            max-width: 1440px;
+        }
     }
 
 
