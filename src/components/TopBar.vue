@@ -7,9 +7,7 @@
                 <router-link to="/kreator-cv">Kreator CV</router-link>
             </nav>
 
-            <div id="my-account">
-                moje konto
-            </div>
+            <router-link to="/moje-konto"><div id="my-account">moje konto</div></router-link>
         </div>
     </header>
 </template>
@@ -22,6 +20,7 @@
     header{
         box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
         z-index: 999;
+        position: relative;
     }
 
     #topbar{
