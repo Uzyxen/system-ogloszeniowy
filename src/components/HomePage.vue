@@ -44,7 +44,7 @@
         padding: 0 150px;
         display: flex;
         position: relative;
-        height: 100vh;
+        height: calc(100vh - 60px);
 
     }   
 
