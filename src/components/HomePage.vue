@@ -16,6 +16,11 @@
         <div id="main-right">
             <div id="blur-circle"></div>
 
+            <img src="src/assets/home-abstract-1.svg" alt="Home abstract 1" id="abstract-1">
+            <img src="src/assets/home-abstract-2.svg" alt="Home abstract 2" id="abstract-2">
+            <img src="src/assets/home-abstract-3.svg" alt="Home abstract 3" id="abstract-3">
+            <img src="src/assets/home-abstract-4.svg" alt="Home abstract 4" id="abstract-4">
+            <img src="src/assets/home-abstract-5.svg" alt="Home abstract 5" id="abstract-5">
             <img src="src/assets/home-photo-1.png" alt="Home photo 1" id="photo-1">
             <img src="src/assets/home-photo-2.png" alt="Home photo 2" id="photo-2">
             <img src="src/assets/home-photo-3.png" alt="Home photo 3" id="photo-3">
@@ -116,5 +121,31 @@
         right: 670px;
         bottom: -260px;
     }
+
+    img#abstract-1{
+        left: 900px;
+        top: 40px;
+    }
+
+    img#abstract-2{
+        right: 190px;
+        bottom: -210px;
+    }
+
+    img#abstract-3{
+        right: 190px;
+        top: -140px;
+    }
+
+    img#abstract-4{
+        right: 650px;
+        top: 190px;
+    }
+
+    img#abstract-5{
+        right: 600px;
+        top: 500px;
+    }
+
 
 </style>
