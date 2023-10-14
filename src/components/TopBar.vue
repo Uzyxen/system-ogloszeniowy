@@ -19,10 +19,13 @@
 </script>
 
 <style>
-    #topbar{
-        z-index: 999;
-        height: 60px;
+    header{
         box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+        z-index: 999;
+    }
+
+    #topbar{
+        height: 60px;
         padding: 0 150px;
         display: flex;
         align-items: center;
@@ -59,6 +62,13 @@
         color: #fff;
         width: 160px;
         height: 40px;
+    }
+
+    @media (min-width: 1920px){
+        #topbar{
+            max-width: 1440px;
+            margin: 0 auto;
+        }
     }
     
 </style>
