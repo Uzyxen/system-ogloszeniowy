@@ -40,7 +40,7 @@
 
 <style scoped>
     section{
-        margin-top: 200px;
+        margin-top: 220px;
         padding: 0 150px;
         display: flex;
         position: relative;
@@ -167,7 +167,7 @@
     }
 
     @media (min-width: 1920px){
-        article{
+        section{
             margin: 200px auto 0;
             max-width: 1440px;
         }
