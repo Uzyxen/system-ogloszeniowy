@@ -35,7 +35,7 @@
                 $user_id = $user['user_id'];
                 echo json_encode($user_id);
             }else{
-                echo json_encode('Uzytkownik nie znaleziony');
+                echo json_encode('Nie znaleziono użytkownika');
             }
         }
     }
