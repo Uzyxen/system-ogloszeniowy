@@ -95,6 +95,7 @@
     #my-account-dropdown{
         position: absolute;
         top: 58px;
+        right: 150px;
         background-color: #fff;
         border: 1px solid #DDD;
         border-radius: 4px;
@@ -113,21 +114,21 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 250px;
+        width: 300px;
     }
 
     #my-account-dropdown > div h2{
         color: #000;
         font-size: 15px;
         margin: 10px 0 15px;
-        width: 220px;
+        width: 280px;
     }
 
     #my-account-dropdown > div button{
         cursor: pointer;
         font-size: 18px;
         padding: 10px;
-        width: 220px;
+        width: 280px;
         height: 45px;
     }
 
