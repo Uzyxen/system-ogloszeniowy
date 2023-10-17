@@ -128,6 +128,7 @@
         font-size: 18px;
         padding: 10px;
         width: 220px;
+        height: 45px;
     }
 
     #login-button{
