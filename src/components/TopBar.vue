@@ -17,9 +17,9 @@
 
                     <div v-else-if="logged == false">
                         <h2>Zaloguj się, aby uzyskać dostęp do wszystkich ofert pracy</h2>
-                        <button id="login-button">Zaloguj się</button>
+                        <router-link to="/logowanie"><button id="login-button">Zaloguj się</button></router-link>
                         <h3>Lub</h3>
-                        <button id="register-button">Zarejestruj się</button>
+                        <router-link to="/rejestracja"><button id="register-button">Zarejestruj się</button></router-link>
                     </div>
                 </div>
             </div>
