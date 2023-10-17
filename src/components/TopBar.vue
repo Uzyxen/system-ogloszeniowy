@@ -13,7 +13,14 @@
                 </div>
 
                 <div id="my-account-dropdown" v-if="account_dropdown_visible">
-                    <p>Zalogowany jako: <span>{{ login }}</span></p>
+                    <p v-if="logged">Zalogowany jako: <span>{{ login }}</span></p>
+
+                    <div v-else-if="logged == false">
+                        <h2>Zaloguj się, aby uzyskać dostęp do wszystkich ofert pracy</h2>
+                        <button id="login-button">Zaloguj się</button>
+                        <h3>Lub</h3>
+                        <button id="register-button">Zarejestruj się</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,6 +31,7 @@
     export default{
         data(){
             return{
+                logged: false,
                 login: 'uzyxen',
                 account_dropdown_visible: false
             }
@@ -90,7 +98,7 @@
         background-color: #fff;
         border: 1px solid #DDD;
         border-radius: 4px;
-        padding: 5px;
+        padding: 10px 15px;
     }
 
     #my-account-dropdown p{
@@ -99,6 +107,44 @@
 
     #my-account-dropdown p > span{
         font-weight: 700;
+    }
+
+    #my-account-dropdown > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 250px;
+    }
+
+    #my-account-dropdown > div h2{
+        color: #000;
+        font-size: 15px;
+        margin: 10px 0 15px;
+        width: 220px;
+    }
+
+    #my-account-dropdown > div button{
+        cursor: pointer;
+        font-size: 18px;
+        padding: 10px;
+        width: 220px;
+    }
+
+    #login-button{
+        background-color: #6244DB;
+        color: #fff;
+    }
+
+    #register-button{
+        border: 3px solid #6244DB;
+        color: #6244DB;
+        margin-bottom: 10px;
+    }
+
+    #my-account-dropdown > div h3{
+        color: #000;
+        font-size: 18px;
+        margin: 10px 0;
     }
 
     @media (min-width: 1920px){
