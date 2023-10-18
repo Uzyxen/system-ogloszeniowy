@@ -13,11 +13,11 @@
                 </div>
 
                 <div id="my-account-dropdown" v-if="account_dropdown_visible" @click="czytaj">
-                    <p v-if="logged">Zalogowany jako: <span>{{ imie }} {{ nazwisko }}</span>
+                    <p v-if="store.logged">Zalogowany jako: <span>{{ store.first_name }} {{ store.last_name }}</span>
                     <button @click="logout">Wyloguj się</button>
                     </p>
 
-                    <div v-else-if="logged == false">
+                    <div v-else-if="store.logged == false">
                         <h2>Zaloguj się, aby uzyskać dostęp do wszystkich ofert pracy</h2>
                         <router-link to="/logowanie"><button id="login-button">Zaloguj się</button></router-link>
                         <h3>Lub</h3>
@@ -30,29 +30,27 @@
 </template>
 
 <script>
-    import { fetchData, sendData } from '../api';
+    import { sendData } from '../api';
+    import { useMainStore } from '../store/store';
 
     export default{
+        setup(){
+            const store = useMainStore();
+            return { store }
+        },
         data(){
             return {
-                logged: false,
-                imie: '',
-                nazwisko: '',
                 account_dropdown_visible: false
             }
         },
-        async mounted(){
-            const data = await fetchData('http://localhost/system-ogloszeniowy/src/api/getName.php');
-
-            this.logged = data;
-            this.imie = data.first_name;
-            this.nazwisko = data.last_name;
-        },
         methods: {
             async logout(){
+                const store = useMainStore();
                 const data = await sendData('http://localhost/system-ogloszeniowy/src/api/logOut.php', {});
 
-                this.logged = data.logged;
+                store.logged = data.logged;
+                store.first_name = '';
+                store.last_name = '';
                 console.log(data.message);
             }
         }

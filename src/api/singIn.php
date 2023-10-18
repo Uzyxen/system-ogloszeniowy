@@ -24,7 +24,7 @@
                 $_SESSION['imie'] = $user['imie'];
                 $_SESSION['nazwisko'] = $user['nazwisko'];
 
-                echo json_encode("Zalogowano");
+                echo json_encode(['logged' => $_SESSION['logged'], 'first_name' => $_SESSION['imie'], 'last_name' => $_SESSION['nazwisko']]);
             }else{
                 echo json_encode('Nie znaleziono użytkownika');
             }
