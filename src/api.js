@@ -1,7 +1,8 @@
-const baseUrl = 'http://localhost/system-ogloszeniowy/src/api/api.php';
-
 export const fetchData = async (endpoint) => {
-    const response = await fetch(`${baseUrl}${endpoint}`);
+    const response = await fetch(endpoint, {
+        method: 'POST',
+        credentials: 'include'
+    });
 
     if(!response.ok){
         throw new Error('Błąd sieci!');
@@ -10,13 +11,14 @@ export const fetchData = async (endpoint) => {
     return response.json();
 };
 
-export const sendData = async (data) => {
-    const response = await fetch('http://localhost/system-ogloszeniowy/src/api/getUser.php', {
+export const sendData = async (endpoint, data) => {
+    const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials: 'include'
     });
 
     if(!response.ok) {

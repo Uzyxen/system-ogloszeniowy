@@ -46,7 +46,9 @@
                     
                 if(this.data.login !== '' && this.data.password !== ''){
                     try {
-                        this.response = await sendData(this.data);
+                        const response = await sendData('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
+                        this.response = response;
+
                     } catch (error) {
                         console.error('Błąd podczas wysyłania danych:', error);
                     }
@@ -99,6 +101,7 @@
         background-color: #6244DB;
         color: #fff;
         padding: 15px;
+        font-size: 18px;
         cursor: pointer;
     }
 </style>

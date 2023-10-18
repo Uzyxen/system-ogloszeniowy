@@ -12,8 +12,10 @@
                     Moje konto
                 </div>
 
-                <div id="my-account-dropdown" v-if="account_dropdown_visible">
-                    <p v-if="logged">Zalogowany jako: <span>{{ login }}</span></p>
+                <div id="my-account-dropdown" v-if="account_dropdown_visible" @click="czytaj">
+                    <p v-if="logged">Zalogowany jako: <span>{{ imie }} {{ nazwisko }}</span>
+                    <button @click="logout">Wyloguj się</button>
+                    </p>
 
                     <div v-else-if="logged == false">
                         <h2>Zaloguj się, aby uzyskać dostęp do wszystkich ofert pracy</h2>
@@ -28,12 +30,30 @@
 </template>
 
 <script>
+    import { fetchData, sendData } from '../api';
+
     export default{
         data(){
-            return{
+            return {
                 logged: false,
-                login: 'uzyxen',
+                imie: '',
+                nazwisko: '',
                 account_dropdown_visible: false
+            }
+        },
+        async mounted(){
+            const data = await fetchData('http://localhost/system-ogloszeniowy/src/api/getName.php');
+
+            this.logged = data;
+            this.imie = data.first_name;
+            this.nazwisko = data.last_name;
+        },
+        methods: {
+            async logout(){
+                const data = await sendData('http://localhost/system-ogloszeniowy/src/api/logOut.php', {});
+
+                this.logged = data.logged;
+                console.log(data.message);
             }
         }
     }
