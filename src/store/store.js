@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { sendData } from '../api.js';
+import { fetchData, sendData } from '../api.js';
 
 export const useUserStore = defineStore('userStore', {
     state: () => ({
@@ -33,6 +33,16 @@ export const useUserStore = defineStore('userStore', {
                 this.last_name = '';
     
                 console.log(response.message);
+            }
+        },
+
+        async getUserData(endpoint) {
+            const response = await fetchData(endpoint);
+
+            if(response) {
+                this.logged = response.data.logged;
+                this.first_name = response.data.first_name;
+                this.last_name = response.data.last_name;
             }
         }
     }

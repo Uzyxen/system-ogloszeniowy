@@ -13,7 +13,7 @@
     setup(){
       const userStore = useUserStore();
 
-      return { userStore }
+      userStore.getUserData('http://localhost/system-ogloszeniowy/src/api/getUserData.php');
     },
     components: {
       TopBar
