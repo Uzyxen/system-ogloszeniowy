@@ -15,6 +15,6 @@ const router = createRouter({
     {path: '/moje-konto', name: 'moje-konto', component: MyAccount},
     {path: '/logowanie', name: 'loowanie', component: LoginForm},
   ]
-})
+});
 
 export default router

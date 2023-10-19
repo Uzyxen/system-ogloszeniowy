@@ -20,8 +20,7 @@
 </template>
 
 <script>
-    import { sendData } from '../api';
-    import { useMainStore } from '../store/store';
+    import { useUserStore } from '../store/store';
 
     export default {
         data(){
@@ -35,8 +34,8 @@
             }
         },
         methods:{
-            async Login() {
-                const store = useMainStore();
+            Login() {
+                const userStore = useUserStore();
 
                 if(this.data.login === '') this.loginErr = 'Uzupełnij pole!';
                 else this.loginErr = '';
@@ -45,15 +44,7 @@
                 else this.passwordErr = '';
                     
                 if(this.data.login !== '' && this.data.password !== ''){
-                    try {
-                        const response = await sendData('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
-                        store.logged = response.logged;
-                        store.first_name = response.first_name;
-                        store.last_name = response.last_name;
-
-                    } catch (error) {
-                        console.error('Błąd podczas wysyłania danych:', error);
-                    }
+                    userStore.getUserState('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
                 }
             }
         }

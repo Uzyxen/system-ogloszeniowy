@@ -7,17 +7,13 @@
 
 <script>
   import TopBar from  './components/TopBar.vue';
-  import { useMainStore } from './store/store';
-  import { sendData } from './api';
+  import { useUserStore } from './store/store';
 
   export default {
-    async mounted(){
-      const store = useMainStore();
-      const data = await sendData('http://localhost/system-ogloszeniowy/src/api/getName.php');
+    setup(){
+      const userStore = useUserStore();
 
-      store.logged = data.logged;
-      store.first_name = data.first_name;
-      store.last_name = data.last_name;
+      return { userStore }
     },
     components: {
       TopBar
