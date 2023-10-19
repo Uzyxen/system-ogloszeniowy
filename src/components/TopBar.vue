@@ -15,8 +15,8 @@
                 <div id="my-account-dropdown" v-if="account_dropdown_visible" @click="czytaj">
                     <div id="dropdown-user-logged" v-if="userStore.logged">
                         <ul>
-                            <li>Profil</li>
-                            <li>Ustawienia</li>
+                            <li><router-link to="/profil">Profil</router-link></li>
+                            <li><router-link to="/ustawienia">Ustawienia</router-link></li>
                         </ul>
 
                         <hr>
@@ -172,12 +172,15 @@
         gap: 5px;
     }
 
-    #dropdown-user-logged ul li{
+    #dropdown-user-logged ul li a{
+        width: 100%;
+        height: 100%;
+        display: block;
         cursor: pointer;
         color: #000;
+        padding: 20px 0;
         display: flex;
         justify-content: center;
-        padding: 20px 0;
         background-color: #eee;
     }
 
