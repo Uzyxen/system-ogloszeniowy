@@ -13,11 +13,18 @@
                 </div>
 
                 <div id="my-account-dropdown" v-if="account_dropdown_visible" @click="czytaj">
-                    <p>Jesteś zalogowany
-                    <button @click="logout">Wyloguj się</button>
-                    </p>
+                    <div id="dropdown-user-logged" v-if="userStore.logged">
+                        <ul>
+                            <li>Profil</li>
+                            <li>Ustawienia</li>
+                        </ul>
 
-                    <div>
+                        <hr>
+
+                        <button @click="logout">Wyloguj się</button>
+                    </div>
+
+                    <div v-else-if="userStore.logged == false">
                         <h2>Zaloguj się, aby uzyskać dostęp do wszystkich ofert pracy</h2>
                         <router-link to="/logowanie"><button id="login-button">Zaloguj się</button></router-link>
                         <h3>Lub</h3>
@@ -30,18 +37,23 @@
 </template>
 
 <script>
-    import { sendData } from '../api';
+    import { useUserStore } from '../store/store';
 
     export default{
+        setup(){
+            const userStore = useUserStore();
+
+            return { userStore }
+        },
+
         data(){
             return {
                 account_dropdown_visible: false
             }
         },
         methods: {
-            async logout(){
-                const data = await sendData('http://localhost/system-ogloszeniowy/src/api/logOut.php', {});
-                console.log(data.message);
+            logout(){
+                this.userStore.logOutUser('http://localhost/system-ogloszeniowy/src/api/logOut.php', {});
             }
         }
     }
@@ -140,6 +152,35 @@
         height: 45px;
     }
 
+    #dropdown-user-logged{
+        width: 200px !important;
+    }
+
+    #dropdown-user-logged button{
+        width: 200px !important;
+        border: 3px solid #6244DB;
+        color: #6244DB;
+    }
+
+    #dropdown-user-logged ul{
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #dropdown-user-logged ul li{
+        cursor: pointer;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        background-color: #eee;
+    }
+
     #login-button{
         background-color: #6244DB;
         color: #fff;
@@ -155,6 +196,14 @@
         color: #000;
         font-size: 18px;
         margin: 10px 0;
+    }
+
+    hr{
+        margin-top: 40px;
+        border: none;
+        height: 1px;
+        background-color: #DDD;
+        width: 100%;
     }
 
     @media (min-width: 1920px){

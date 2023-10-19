@@ -8,7 +8,7 @@ export const useUserStore = defineStore('userStore', {
         last_name: ''
     }),
     actions: {
-        async getUserState(endpoint, data){
+        async logInUser(endpoint, data){
             try{
                 const response = await sendData(endpoint, data);
 
@@ -21,6 +21,18 @@ export const useUserStore = defineStore('userStore', {
                 }
             }catch(error){
                 console.log(error);
+            }
+        },
+
+        async logOutUser(endpoint, data) {
+            const response = await sendData(endpoint, data);
+
+            if(response) {
+                this.logged = false;
+                this.first_name = '';
+                this.last_name = '';
+    
+                console.log(response.message);
             }
         }
     }

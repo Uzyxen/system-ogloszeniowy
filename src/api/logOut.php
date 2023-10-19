@@ -1,9 +1,6 @@
 <?php
     session_start();
+    session_destroy();
 
-    unset($_SESSION['logged']);
-    unset($_SESSION['imie']);
-    unset($_SESSION['nazwisko']);
-
-    echo json_encode(['message' => 'Wylogowano pomyślnie', 'logged' => false]);
+    echo json_encode(['message' => 'Wylogowano pomyślnie']);
 ?>

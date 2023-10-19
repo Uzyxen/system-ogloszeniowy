@@ -44,7 +44,7 @@
                 else this.passwordErr = '';
                     
                 if(this.data.login !== '' && this.data.password !== ''){
-                    userStore.getUserState('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
+                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
                 }
             }
         }
