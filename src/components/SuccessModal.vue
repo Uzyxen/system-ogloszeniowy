@@ -45,6 +45,7 @@
         justify-content: start;
         align-items: center;
         gap: 20px;
+        border-radius: 5px;
     }
 
     h2{

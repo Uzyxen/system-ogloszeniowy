@@ -75,7 +75,10 @@
     header{
         box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
         z-index: 999;
-        position: relative;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #fff;
     }
 
     #topbar{
