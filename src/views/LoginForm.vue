@@ -1,6 +1,6 @@
 <template>
     <div id="login-box">
-        <SuccessModal>
+        <SuccessModal v-if="success">
             <p>Pomyślnie zalogowano</p>
         </SuccessModal>
 
@@ -50,7 +50,11 @@
                 else this.passwordErr = '';
                     
                 if(this.data.login !== '' && this.data.password !== ''){
-                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
+                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data).then(() => {
+                        if(userStore.logged){
+                            this.success = userStore.logged;
+                        }
+                    })
                 }
             }
         },

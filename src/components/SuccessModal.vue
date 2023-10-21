@@ -21,7 +21,7 @@
         mounted(){
             setTimeout(() => {
                 this.isOpened = true;
-            }, 100);
+            }, 50);
 
             setTimeout(() => {
                 this.isOpened = false;
@@ -35,7 +35,7 @@
         background-color: #FFF;
         box-shadow: 0px 1px 50px 5px rgba(0, 0, 0, 0.15);
         z-index: 9999;
-        position: absolute;
+        position: fixed;
         left: calc(50% - 175px);
         top: 40px;
         width: 350px;
