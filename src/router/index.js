@@ -7,6 +7,7 @@ import MyAccount from '../views/MyAccount.vue'
 import LoginForm from '../views/LoginForm.vue'
 import ProfileView from '../views/ProfileView.vue'
 import UserSettings from '../views/UserSettings.vue'
+import OfferDetail from '../views/OfferDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,7 @@ const router = createRouter({
     {path: '/logowanie', name: 'logowanie', component: LoginForm},
     {path: '/profil', name: 'profil', component: ProfileView},
     {path: '/ustawienia', name: 'ustawienia', component: UserSettings},
+    {path: '/oferta/:id', name: 'oferta', component: OfferDetail}
   ]
 });
 
