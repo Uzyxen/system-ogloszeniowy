@@ -1,6 +1,13 @@
 import { defineStore } from "pinia";
 import { fetchData, sendData } from '../api.js';
 
+export const usePopupStore = defineStore('popupStore', {
+    state: () => ({
+        successModalVisible: false,
+        successModalMessage: ''
+    })
+});
+
 export const useUserStore = defineStore('userStore', {
     state: () => ({
         logged: false,
@@ -46,4 +53,4 @@ export const useUserStore = defineStore('userStore', {
             }
         }
     }
-})
+});

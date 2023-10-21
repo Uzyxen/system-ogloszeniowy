@@ -1,9 +1,5 @@
 <template>
     <div id="login-box">
-        <SuccessModal v-if="success">
-            <p>Pomyślnie zalogowano</p>
-        </SuccessModal>
-
         <h2>Zaloguj się</h2>
 
         <form @submit.prevent="Login" method="post">
@@ -24,10 +20,14 @@
 </template>
 
 <script>
-    import { useUserStore } from '../store/store';
-    import SuccessModal from '../components/SuccessModal.vue';
+    import { useUserStore, usePopupStore } from '../store/store';
 
     export default {
+        setup() {
+            const popupStore = usePopupStore();
+
+            return { popupStore }
+        },
         data(){
             return{
                 data: {
@@ -35,8 +35,7 @@
                     password: ''
                 },
                 loginErr: '',
-                passwordErr: '',
-                success: false
+                passwordErr: ''
             }
         },
         methods:{
@@ -52,14 +51,14 @@
                 if(this.data.login !== '' && this.data.password !== ''){
                     userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data).then(() => {
                         if(userStore.logged){
-                            this.success = userStore.logged;
+                            this.popupStore.successModalVisible = userStore.logged;
+                            this.popupStore.successModalMessage = "Pomyślnie zalogowano";
+
+                            this.$router.push({ name: 'profil' });
                         }
                     })
                 }
             }
-        },
-        components: {
-            SuccessModal
         }
     }
 
