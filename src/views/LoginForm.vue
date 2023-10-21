@@ -1,9 +1,8 @@
 <template>
     <div id="login-box">
-        <NotificationModal>
-            <h2>Zalogowano</h2>
-            <p>Możesz już w pełni korzystać z portalu moluj.pl!</p>
-        </NotificationModal>
+        <SuccessModal>
+            <p>Pomyślnie zalogowano</p>
+        </SuccessModal>
 
         <h2>Zaloguj się</h2>
 
@@ -26,7 +25,7 @@
 
 <script>
     import { useUserStore } from '../store/store';
-    import NotificationModal from '../components/NotificationModal.vue';
+    import SuccessModal from '../components/SuccessModal.vue';
 
     export default {
         data(){
@@ -51,12 +50,12 @@
                 else this.passwordErr = '';
                     
                 if(this.data.login !== '' && this.data.password !== ''){
-                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data)
+                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
                 }
             }
         },
         components: {
-            NotificationModal
+            SuccessModal
         }
     }
 
