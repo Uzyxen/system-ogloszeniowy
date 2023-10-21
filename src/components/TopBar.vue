@@ -53,7 +53,10 @@
         },
         methods: {
             logout(){
-                this.userStore.logOutUser('http://localhost/system-ogloszeniowy/src/api/logOut.php', {});
+                this.userStore.logOutUser('http://localhost/system-ogloszeniowy/src/api/logOut.php', {}).then(() => {
+                    this.account_dropdown_visible = false;
+                    this.$router.push({ name: 'strona-glowna' });
+                });
             }
         },
         mounted(){
