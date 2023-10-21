@@ -39,7 +39,7 @@ export const useUserStore = defineStore('userStore', {
         async getUserData(endpoint) {
             const response = await fetchData(endpoint);
 
-            if(response) {
+            if(response.data) {
                 this.logged = response.data.logged;
                 this.first_name = response.data.first_name;
                 this.last_name = response.data.last_name;

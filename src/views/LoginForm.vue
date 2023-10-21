@@ -1,5 +1,10 @@
 <template>
     <div id="login-box">
+        <NotificationModal>
+            <h2>Zalogowano</h2>
+            <p>Możesz już w pełni korzystać z portalu moluj.pl!</p>
+        </NotificationModal>
+
         <h2>Zaloguj się</h2>
 
         <form @submit.prevent="Login" method="post">
@@ -21,6 +26,7 @@
 
 <script>
     import { useUserStore } from '../store/store';
+    import NotificationModal from '../components/NotificationModal.vue';
 
     export default {
         data(){
@@ -30,7 +36,8 @@
                     password: ''
                 },
                 loginErr: '',
-                passwordErr: ''
+                passwordErr: '',
+                success: false
             }
         },
         methods:{
@@ -44,9 +51,12 @@
                 else this.passwordErr = '';
                     
                 if(this.data.login !== '' && this.data.password !== ''){
-                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data);
+                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data)
                 }
             }
+        },
+        components: {
+            NotificationModal
         }
     }
 
