@@ -13,7 +13,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {path: '/', name: 'strona-glowna', component: MainPage},
-    {path: '/praca', name: 'praca', component: JobOffers},
+    {path: '/oferty', name: 'oferty', component: JobOffers},
     {path: '/kreator-cv', name: 'kreator-cv', component: CVCreator},
     {path: '/moje-konto', name: 'moje-konto', component: MyAccount},
     {path: '/logowanie', name: 'logowanie', component: LoginForm},

@@ -45,6 +45,7 @@
     }
 
     .offer{
+        cursor: pointer;
         border: 1px solid #DDD;
     }
 

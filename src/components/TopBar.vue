@@ -3,16 +3,16 @@
         <div id="topbar">
             <router-link id="logo" to="/">moluj.pl</router-link>
             <nav>
-                <router-link to="/praca">Oferty pracy</router-link>
+                <router-link to="/oferty">Oferty pracy</router-link>
                 <router-link to="/kreator-cv">Kreator CV</router-link>
             </nav>
 
             <div id="my-account">
-                <div id="my-acc" @click="account_dropdown_visible = !account_dropdown_visible">
+                <div id="my-acc" @click.stop="account_dropdown_visible = !account_dropdown_visible">
                     Moje konto
                 </div>
 
-                <div id="my-account-dropdown" v-if="account_dropdown_visible" @click="czytaj">
+                <div id="my-account-dropdown" v-if="account_dropdown_visible" ref="dropDown">
                     <div id="dropdown-user-logged" v-if="userStore.logged">
                         <ul>
                             <li><router-link to="/profil">Profil</router-link></li>
@@ -25,7 +25,7 @@
                     </div>
 
                     <div v-else-if="userStore.logged == false">
-                        <h2>Zaloguj się, aby uzyskać dostęp do wszystkich ofert pracy</h2>
+                        <h2>Zaloguj się, aby uzyskać dostęp do wszystkich funkcji portalu</h2>
                         <router-link to="/logowanie"><button id="login-button">Zaloguj się</button></router-link>
                         <h3>Lub</h3>
                         <router-link to="/rejestracja"><button id="register-button">Zarejestruj się</button></router-link>
@@ -55,6 +55,15 @@
             logout(){
                 this.userStore.logOutUser('http://localhost/system-ogloszeniowy/src/api/logOut.php', {});
             }
+        },
+        mounted(){
+            window.addEventListener('click', (element) => {
+                if(this.$refs.dropDown) {
+                    if(!this.$refs.dropDown.contains(element.target)){
+                        this.account_dropdown_visible = false;
+                    }
+                }
+            });
         }
     }
 </script>
