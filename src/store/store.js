@@ -4,7 +4,10 @@ import { fetchData, sendData } from '../api.js';
 export const usePopupStore = defineStore('popupStore', {
     state: () => ({
         successModalVisible: false,
-        successModalMessage: ''
+        successModalMessage: '',
+
+        failureModalVisible: false,
+        failureModalMessage: ''
     })
 });
 

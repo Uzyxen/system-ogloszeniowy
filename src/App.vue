@@ -2,6 +2,7 @@
   <TopBar/>
   <main>
     <SuccessModal/>
+    <FailureModal/>
     <RouterView></RouterView>
   </main>
 </template>
@@ -10,6 +11,7 @@
   import TopBar from  './components/TopBar.vue';
   import { useUserStore } from './store/store';
   import SuccessModal from './components/SuccessModal.vue';
+  import FailureModal from './components/FailureModal.vue';
 
   export default {
     setup(){
@@ -19,7 +21,8 @@
     },
     components: {
       TopBar,
-      SuccessModal
+      SuccessModal,
+      FailureModal
     }
   }
 </script>

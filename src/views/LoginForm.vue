@@ -55,6 +55,9 @@
                             this.popupStore.successModalMessage = "Pomyślnie zalogowano";
 
                             this.$router.push({ name: 'profil' });
+                        } else{
+                            this.popupStore.failureModalVisible = true;
+                            this.popupStore.failureModalMessage = "Nie znaleziono użytkownika";
                         }
                     })
                 }
