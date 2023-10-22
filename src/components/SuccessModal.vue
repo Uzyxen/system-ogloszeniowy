@@ -45,7 +45,8 @@
         justify-content: start;
         align-items: center;
         gap: 20px;
-        border-radius: 5px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
     }
 
     h2{
@@ -60,6 +61,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
     }
 
     #icon svg{
