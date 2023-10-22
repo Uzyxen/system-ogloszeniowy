@@ -16,6 +16,10 @@
         </div>
 
         <div id="preview">
+            <div id="selected-template">
+                <h5>Wybrany szablon: sea</h5>
+            </div>
+
             <div id="cv">
                 <div id="short">
                     <h4>Dane osobowe</h4>
@@ -31,6 +35,10 @@
                             <p>{{ email }}</p>
                         </div>
                     </div>
+                </div>
+
+                <div id="long">
+                    <h3>{{ first_name }} {{ last_name }}</h3>
                 </div>
             </div>
         </div>
@@ -57,7 +65,6 @@
         height: 100%;
         top: 61px;
         left: 0;
-        background-color: rgba(0, 0, 0, 0.5);
         display: flex;
     }
 
@@ -78,15 +85,18 @@
         width: 60%;
         height: 100%;
         display: flex;
-        justify-content: center;
-        align-items: start;
-        padding-top: 50px;
+        justify-content: start;
+        align-items: center;
+        padding-top: 20px;
+        flex-direction: column;
     }
 
     #preview #cv{
         border: 1px solid #AAA;
         width: 500px;
         height: 700px;
+        display: flex;
+        margin-top: 30px;
     }
 
     #cv #short{
@@ -118,6 +128,16 @@
     .short-section p{
         margin: 0;
         font-size: 9px;
+    }
+
+    #long h3{
+        padding: 10px;
+    }
+
+    #selected-template{
+        cursor: pointer;
+        border: 1px solid #DDD;
+        padding: 5px;
     }
 
 </style>
