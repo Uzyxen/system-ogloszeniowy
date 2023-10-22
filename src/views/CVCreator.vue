@@ -17,7 +17,7 @@
 
         <div id="preview">
             <div id="selected-template">
-                <h5>Wybrany szablon: sea</h5>
+                <h5>Wybrany szablon: {{ selected_template }}</h5>
             </div>
 
             <div id="cv">
@@ -49,6 +49,7 @@
     export default {
         data() {
             return {
+                selected_template: 'sea',
                 first_name: '',
                 last_name: '',
                 email: ''
@@ -59,7 +60,7 @@
 
 <style>
     #root{
-        z-index: 99999;
+        z-index: 99;
         position: absolute;
         width: 100%;
         height: 100%;
