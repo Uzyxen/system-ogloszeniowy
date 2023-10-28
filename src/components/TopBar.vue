@@ -109,7 +109,7 @@
 
     #my-account{
         background-color: #6244DB;
-        border-radius: 50px;
+        border-radius: 2px;
         color: #fff;
         width: 160px;
         height: 40px;
@@ -119,7 +119,7 @@
         cursor: pointer;
         width: 100%;
         height: 100%;
-        border-radius: 50px;
+        border-radius: 2px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -163,6 +163,7 @@
         padding: 10px;
         width: 280px;
         height: 45px;
+        border-radius: 2px;
     }
 
     #dropdown-user-logged{

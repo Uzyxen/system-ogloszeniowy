@@ -63,8 +63,8 @@
     }
 
     #button-box button{
-        width: 250px;
-        height: 60px;
+        width: 230px;
+        height: 55px;
         padding: 0;
     }
 
@@ -81,21 +81,22 @@
         align-items: center;
     }
 
-    #button-box button#find-out-more a{
-        width: calc(100% - 8px);
-        height: calc(100% - 8px);
-    }
-
     #search-for-offers{
         background-color: #6244DB;
         color: #fff;
-        font-size: 25px;
+        font-size: 22px;
+        border-radius: 2px;
+    }
+
+    #find-out-more{
+        background-color: transparent;
     }
 
     #find-out-more a{
-        border: 4px solid #6244DB;
         color: #6244DB !important;
-        font-size: 20px;
+        font-size: 22px;
+        width: 100%;
+        height: 100%;
     }
 
     h2{

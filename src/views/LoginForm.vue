@@ -5,7 +5,7 @@
         <form @submit.prevent="Login" method="post">
             <div>
                 <label for="login">Login:</label>
-                <input type="text" name="login" v-model="data.login" @keyup="checkLogin">
+                <input type="text" name="login" v-model="data.login">
                 <span class="error">{{ loginErr }}</span>
             </div>
 

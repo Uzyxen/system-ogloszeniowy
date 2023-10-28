@@ -123,6 +123,7 @@
         background-color: #FFF;
         width: 40%;
         height: 100%;
+        overflow-y: auto;
     }
 
     #data h3{
@@ -255,7 +256,7 @@
     }
 
     #additional-fields-button{
-        margin-top: 20px;
+        margin: 20px 0;
         background-color: transparent;
         color: #6244DB;
         font-size: 15px;
