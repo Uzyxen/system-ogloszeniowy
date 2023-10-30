@@ -34,7 +34,7 @@
 <style scoped>
     #modal{
         background-color: #FFF;
-        box-shadow: 0px 1px 50px 5px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 1px 10px 2px rgba(0, 0, 0, 0.15);
         z-index: 9999;
         position: fixed;
         left: calc(50% - 175px);

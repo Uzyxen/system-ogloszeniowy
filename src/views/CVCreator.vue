@@ -91,7 +91,14 @@
 </template>
 
 <script>
+    import { useUserStore } from '../store/store';
+
     export default {
+        setup(){
+            const userStore = useUserStore();
+
+            return { userStore }
+        },
         data() {
             return {
                 additional_fields: false,

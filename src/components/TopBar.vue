@@ -163,7 +163,7 @@
         padding: 10px;
         width: 280px;
         height: 45px;
-        border-radius: 2px;
+        border-radius: 3px;
     }
 
     #dropdown-user-logged{
