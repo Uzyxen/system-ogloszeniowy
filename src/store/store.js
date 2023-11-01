@@ -15,7 +15,14 @@ export const useUserStore = defineStore('userStore', {
     state: () => ({
         logged: false,
         first_name: '',
-        last_name: ''
+        last_name: '',
+        description: '',
+        phone_number: '',
+        email: '',
+        position: '',
+        gender: '',
+        age: 0,
+        country: ''
     }),
     actions: {
         async logInUser(endpoint, data){
@@ -26,6 +33,13 @@ export const useUserStore = defineStore('userStore', {
                     this.logged = response.data.logged;
                     this.first_name = response.data.first_name;
                     this.last_name = response.data.last_name;
+                    this.description = response.data.description;
+                    this.phone_number = response.data.phone_number;
+                    this.email = response.data.email;
+                    this.position = response.data.position;
+                    this.gender = response.data.gender;
+                    this.age = response.data.age;
+                    this.country = response.data.country;
                 }else{
                     console.log(response);
                 }
@@ -41,6 +55,13 @@ export const useUserStore = defineStore('userStore', {
                 this.logged = false;
                 this.first_name = '';
                 this.last_name = '';
+                this.description = '';
+                this.phone_number = '';
+                this.email = '';
+                this.position = '';
+                this.gender = '';
+                this.age = '';
+                this.country = '';
     
                 console.log(response.message);
             }
@@ -53,6 +74,13 @@ export const useUserStore = defineStore('userStore', {
                 this.logged = response.data.logged;
                 this.first_name = response.data.first_name;
                 this.last_name = response.data.last_name;
+                this.description = response.data.description;
+                this.phone_number = response.data.phone_number;
+                this.email = response.data.email;
+                this.position = response.data.position;
+                this.gender = response.data.gender;
+                this.age = response.data.age;
+                this.country = response.data.country;
             }
         }
     }
