@@ -49,6 +49,16 @@
             </div>
         </div>
 
+        <div id="prof-right">
+            <nav id="prof-nav">
+                <ul>
+                    <li id="current">Profil</li>
+                    <li>CV</li>
+                </ul>
+
+                <div id="current-line"></div>
+            </nav>
+        </div>
     </div>
 </template>
 
@@ -72,7 +82,9 @@
 
 <style scoped>
     #root{
-        padding: 40px 150px 0;        
+        padding: 40px 150px 0;       
+        display: flex; 
+        gap: 20px;
     }
 
     #prof-left{
@@ -81,9 +93,54 @@
         gap: 20px;
     }
 
+    #prof-right{
+        height: 720px;
+        width: calc(100% - 320px)
+    }
+
+    #prof-nav{
+        width: 100%;
+        height: 50px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+        position: relative;
+    }
+
+    #prof-nav ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+    
+    #prof-nav ul li{
+        font-size: 17px;
+        color: #B0AEB8;
+        font-weight: 600;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+
+    #prof-nav ul li#current{
+        color: #6244DB;
+    }
+
+    #current-line{
+        position: absolute;
+        background-color: #6244DB;
+        height: 4px;
+        width: 90px;
+        bottom: 0;
+    }
+
     #prof-left #short-info{
         width: 300px;
-        height: 500px;
+        height: 400px;
         box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
         display: flex;
         flex-direction: column;
