@@ -26,7 +26,7 @@
                     <input v-else type="text">
                 </h3>
                 <p id="position">
-                    <span v-if="edit_mode == false">Junior vuejs developer</span>
+                    <span v-if="edit_mode == false">{{ userStore.position }}</span>
                     <input v-else type="text">
                 </p>
             </div>
@@ -34,17 +34,17 @@
             <div id="short-info">
                 <div>
                     <span>Płeć</span>
-                    <p>Mężczyzna</p>
+                    <p>{{ userStore.gender }}</p>
                 </div>
 
                 <div>
                     <span>Wiek</span>
-                    <p>20 Lat</p>
+                    <p>{{ userStore.age }} Lat</p>
                 </div>
 
                 <div>
                     <span>Kraj</span>
-                    <p>Polska</p>
+                    <p>{{ userStore.country }}</p>
                 </div>
             </div>
         </div>
