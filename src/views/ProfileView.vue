@@ -247,4 +247,11 @@
         background-color: #00000050;
     }
 
+    @media (min-width: 1920px){
+        #root{
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+    }
+
 </style>

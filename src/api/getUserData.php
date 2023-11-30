@@ -5,7 +5,7 @@
         echo json_encode(['data' => [
             'logged' => $_SESSION['logged'], 
             'first_name' => $_SESSION['imie'], 
-            'last_name' => $_SESSION['nazwisko']
+            'last_name' => $_SESSION['nazwisko'],
             'description' => $_SESSION['opis'],
             'phone_number' => $_SESSION['numer_telefonu'],
             'email' => $_SESSION['email'],

@@ -1,7 +1,7 @@
 <template>
     <header>
         <div id="topbar">
-            <router-link id="logo" to="/">moluj.pl</router-link>
+            <router-link id="logo" to="/">moltaro.pl</router-link>
             <nav>
                 <router-link to="/oferty">Oferty pracy</router-link>
                 <router-link to="/kreator-cv">Kreator CV</router-link>
