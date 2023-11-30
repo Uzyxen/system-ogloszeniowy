@@ -160,7 +160,7 @@
     }
 
     #cv #short{
-        background-color: #97B2E6;
+        background-color: #7292ce;
         height: calc(100% - 30px);
         width: 120px;
         padding: 15px;
