@@ -1,5 +1,5 @@
 <template>
-  <TopBar v-if="globalStore.topbarVisible"/>
+  <TopBar v-if="shouldShowTopbar"/>
   <main>
     <SuccessModal/>
     <FailureModal/>
@@ -20,8 +20,12 @@
 
       userStore.getUserData('http://localhost/system-ogloszeniowy/src/api/getUserData.php');
 
-
       return { globalStore }
+    },
+    computed:{
+      shouldShowTopbar(){
+        return this.$route.meta.showTopBar;
+      }
     },
     components: {
       TopBar,
