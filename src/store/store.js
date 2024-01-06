@@ -1,6 +1,13 @@
 import { defineStore } from "pinia";
 import { fetchData, sendData } from '../api.js';
 
+
+export const userGlobalStore = defineStore('globalStore', {
+    state: () => ({
+        topbarVisible: true
+    })
+});
+
 export const usePopupStore = defineStore('popupStore', {
     state: () => ({
         successModalVisible: false,

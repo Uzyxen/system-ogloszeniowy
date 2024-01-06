@@ -1,21 +1,23 @@
 <template>
-    <div id="login-box">
-        <h2>Zaloguj się</h2>
+    <div id="root">
+        <div id="login-box">
+            <h2>Zaloguj się</h2>
 
-        <form @submit.prevent="Login" method="post">
-            <div>
-                <label for="login">Login:</label>
-                <input type="text" name="login" v-model="data.login">
-                <span class="error">{{ loginErr }}</span>
-            </div>
+            <form @submit.prevent="Login" method="post">
+                <div>
+                    <label for="login">Login:</label>
+                    <input type="text" name="login" v-model="data.login">
+                    <span class="error">{{ loginErr }}</span>
+                </div>
 
-            <div>
-                <label for="login">Hasło:</label>
-                <input type="password" name="password" id="" v-model="data.password">
-                <span class="error">{{ passwordErr }}</span>
-            </div>
-            <button type="submit">Zaloguj się</button>
-        </form>
+                <div>
+                    <label for="login">Hasło:</label>
+                    <input type="password" name="password" id="" v-model="data.password">
+                    <span class="error">{{ passwordErr }}</span>
+                </div>
+                <button type="submit">Zaloguj się</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -67,15 +69,27 @@
 
 </script>
 
-<style>
+<style scoped>
     .error{
         font-size: 14px;
         color: #FA4132;
     }
 
+    #root{
+        background-color: #FFF;
+        width: 100%;
+        height: 100vh;
+    }
+
     #login-box{
         padding: 50px 150px 0;
         width: 400px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
     }
 
     #login-box h2{

@@ -192,10 +192,10 @@
         display: block;
         cursor: pointer;
         color: #000;
-        padding: 20px 0;
+        padding: 10px 0;
         display: flex;
         justify-content: center;
-        background-color: #eee;
+        background-color: #f9f9f9;
     }
 
     #login-button{
@@ -216,7 +216,7 @@
     }
 
     hr{
-        margin-top: 40px;
+        margin-top: 30px;
         border: none;
         height: 1px;
         background-color: #DDD;
