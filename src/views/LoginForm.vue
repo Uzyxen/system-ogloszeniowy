@@ -1,28 +1,29 @@
 <template>
-    <div id="root">
-        <div id="login-box">
-            <h2>Zaloguj się</h2>
+    <div id="login-box">
+        <h2>Podaj adres email</h2>
+        <p>aby się zalogować lub utworzyć konto</p>
 
-            <form @submit.prevent="Login" method="post">
-                <div>
-                    <label for="login">Login:</label>
-                    <input type="text" name="login" v-model="data.login">
-                    <span class="error">{{ loginErr }}</span>
-                </div>
+        <form @submit.prevent="Login" method="post"> 
+            <div>
+                <label for="email">Email:</label>
+                <input placeholder="Adres e-mail" type="text" name="email" v-model="data.email">
+                <span class="error">{{ emailErr }}</span>
+            </div>
+            <button type="submit">Dalej</button>
+        </form>
 
-                <div>
-                    <label for="login">Hasło:</label>
-                    <input type="password" name="password" id="" v-model="data.password">
-                    <span class="error">{{ passwordErr }}</span>
-                </div>
-                <button type="submit">Zaloguj się</button>
-            </form>
-        </div>
+        <h3>Lub</h3>
+
+        <button type="submit" id="google-button">Zaloguj się przez Google</button>
+        <button type="submit" id="facebook-button">Zaloguj się przez Facebook</button>
+
+        <p id="for-companies">Logowanie dla firm</p>
     </div>
 </template>
 
 <script>
-    import { useUserStore, usePopupStore } from '../store/store';
+    import { sendData } from '../api';
+    import { usePopupStore } from '../store/store';
 
     export default {
         setup() {
@@ -33,78 +34,70 @@
         data(){
             return{
                 data: {
-                    login: '',
-                    password: ''
+                    email: '',
                 },
-                loginErr: '',
-                passwordErr: ''
+                emailErr: '',
+                success: ''
             }
         },
         methods:{
-            Login() {
-                const userStore = useUserStore();
+            async Login() {
+                if(this.data.email === ''){
+                    this.emailErr = 'Uzupełnij pole!';
+                } 
+                else
+                {
+                    this.emailErr = '';
 
-                if(this.data.login === '') this.loginErr = 'Uzupełnij pole!';
-                else this.loginErr = '';
+                    try{
+                        const response = await sendData('http://localhost/system-ogloszeniowy/src/api/checkIfEmailExists.php', this.data);
 
-                if(this.data.password === '') this.passwordErr = 'Uzupełnij pole!';
-                else this.passwordErr = '';
-                    
-                if(this.data.login !== '' && this.data.password !== ''){
-                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', this.data).then(() => {
-                        if(userStore.logged){
-                            this.popupStore.successModalVisible = userStore.logged;
-                            this.popupStore.successModalMessage = "Pomyślnie zalogowano";
-
-                            this.$router.push({ name: 'profil' });
-                        } else{
-                            this.popupStore.failureModalVisible = true;
-                            this.popupStore.failureModalMessage = "Nie znaleziono użytkownika";
+                        if(response){
+                            this.success = response;
                         }
-                    })
-                }
+                    }catch(error){
+                        console.error("Wystąpił nieoczekiwany błąd");
+                    }
+
+                } 
             }
         }
     }
 
 </script>
 
-<style scoped>
+<style>
     .error{
         font-size: 14px;
         color: #FA4132;
     }
 
-    #root{
-        background-color: #FFF;
-        width: 100%;
-        height: 100vh;
-    }
-
     #login-box{
-        padding: 50px 150px 0;
+        padding: 50px 100px 0;
         width: 400px;
-        height: 500px;
+        height: 550px;
         position: absolute;
-        top: 50%;
+        top: 30%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -30%);
         box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+        border-radius: 2px;
     }
 
     #login-box h2{
+        font-size: 26px;
         text-align: center;
-        margin: 0 0 20px;
+    }
+
+    #login-box p{
+        text-align: center;
+        margin: 10px 0 50px;
     }
 
     #login-box form div{
         display: flex;
         flex-direction: column;
         gap: 10px;
-    }
-
-    #login-box form div:nth-child(1){
-        margin-bottom: 15px;
     }
 
     #login-box form div label{
@@ -118,12 +111,35 @@
     }
 
     #login-box button{
-        margin-top: 30px;
+        margin-top: 10px;
         width: 400px;
         background-color: #6244DB;
         color: #fff;
         padding: 15px;
         font-size: 18px;
         cursor: pointer;
+    }
+
+    #login-box h3{
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    #login-box button#google-button{
+        background-color: #fff;
+        border: 2px solid #6244DB;
+        color: #6244DB;
+    }
+    
+    #login-box button#facebook-button{
+        background-color: #fff;
+        border: 2px solid #6244DB;
+        color: #6244DB;
+    }
+
+    #login-box p#for-companies{
+        text-align: center;
+        margin-top: 40px;
+        color: #6244DB;
     }
 </style>
