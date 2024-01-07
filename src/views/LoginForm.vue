@@ -39,7 +39,7 @@
 
 <script>
     import { sendData } from '../api';
-    import { usePopupStore } from '../store/store';
+    import { usePopupStore, useUserStore } from '../store/store';
 
     export default {
         setup() {
@@ -57,11 +57,10 @@
         },
         methods:{
             async CheckEmail() {
-                if(this.email === ''){
+                if(this.email === '') {
                     this.emailErr = 'Uzupełnij pole!';
                 } 
-                else
-                {
+                else {
                     this.emailErr = '';
 
                     try{
@@ -73,11 +72,29 @@
                     }catch(error){
                         console.error("Wystąpił nieoczekiwany błąd");
                     }
-
                 } 
             },
-            async Login(){
-                
+            async Login() {
+                if(this.password === ''){
+                    this.passwordErr = 'Uzupełnij pole!';
+                }
+                else {
+                    this.passwordErr = '';
+
+                    const userStore = useUserStore();
+
+                    userStore.logInUser('http://localhost/system-ogloszeniowy/src/api/singIn.php', { email: this.email, password: this.password }).then(() => {
+                        if(userStore.logged){
+                            this.popupStore.successModalVisible = userStore.logged;
+                            this.popupStore.successModalMessage = "Pomyślnie zalogowano";
+
+                            this.$router.push({ name: 'profil' });
+                        }else{
+                            this.popupStore.failureModalVisible = true;
+                            this.popupStore.failureModalMessage = "Nie znaleziono użytkownika";
+                        }
+                    });
+                }
             }
         }
     }

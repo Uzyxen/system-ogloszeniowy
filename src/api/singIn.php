@@ -7,13 +7,13 @@
         if(!isset($_SESSION['logged'])) {
             $_POST = json_decode(file_get_contents('php://input'), true);
 
-            if(isset($_POST['login']) && isset($_POST['password'])){
-                $login = $_POST['login'];
+            if(isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
                 $password = $_POST['password'];
         
-                $query = $db->prepare('SELECT * FROM uzytkownicy WHERE login = :login AND password = :password');
+                $query = $db->prepare('SELECT * FROM uzytkownicy WHERE email = :email AND password = :password');
         
-                $query->bindValue(':login', $login, PDO::PARAM_STR);
+                $query->bindValue(':email', $email, PDO::PARAM_STR);
                 $query->bindValue(':password', $password, PDO::PARAM_STR);
                 $query->execute();
     
