@@ -1,23 +1,39 @@
 <template>
     <div id="login-box">
-        <h2>Podaj adres email</h2>
-        <p>aby się zalogować lub utworzyć konto</p>
+        <div v-if="success == 'false'">
+            <h2>Podaj adres email</h2>
+            <p>aby się zalogować lub utworzyć konto</p>
 
-        <form @submit.prevent="Login" method="post"> 
-            <div>
-                <label for="email">Email:</label>
-                <input placeholder="Adres e-mail" type="text" name="email" v-model="data.email">
-                <span class="error">{{ emailErr }}</span>
-            </div>
-            <button type="submit">Dalej</button>
-        </form>
+            <form @submit.prevent="CheckEmail" method="post"> 
+                <div>
+                    <label for="email">Email:</label>
+                    <input placeholder="Adres e-mail" type="text" name="email" v-model="email">
+                    <span class="error">{{ emailErr }}</span>
+                </div>
+                <button type="submit">Dalej</button>
+            </form>
 
-        <h3>Lub</h3>
+            <h3>Lub</h3>
 
-        <button type="submit" id="google-button">Zaloguj się przez Google</button>
-        <button type="submit" id="facebook-button">Zaloguj się przez Facebook</button>
+            <button type="submit" id="google-button">Zaloguj się przez Google</button>
+            <button type="submit" id="facebook-button">Zaloguj się przez Facebook</button>
 
-        <p id="for-companies">Logowanie dla firm</p>
+            <p id="for-companies">Logowanie dla firm</p>
+        </div>
+
+        <div v-if="success == 'true'">
+            <h2>Podaj hasło</h2>
+            <p>aby zalogować się do portalu</p>
+
+            <form @submit.prevent="Login" method="post"> 
+                <div>
+                    <label for="password">Hasło:</label>
+                    <input placeholder="Hasło" type="password" name="email" v-model="password">
+                    <span class="error">{{ passwordErr }}</span>
+                </div>
+                <button type="submit">Dalej</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -33,16 +49,15 @@
         },
         data(){
             return{
-                data: {
-                    email: '',
-                },
+                email: '',
+                password: '',
                 emailErr: '',
-                success: ''
+                success: 'false'
             }
         },
         methods:{
-            async Login() {
-                if(this.data.email === ''){
+            async CheckEmail() {
+                if(this.email === ''){
                     this.emailErr = 'Uzupełnij pole!';
                 } 
                 else
@@ -50,7 +65,7 @@
                     this.emailErr = '';
 
                     try{
-                        const response = await sendData('http://localhost/system-ogloszeniowy/src/api/checkIfEmailExists.php', this.data);
+                        const response = await sendData('http://localhost/system-ogloszeniowy/src/api/checkIfEmailExists.php', this.email);
 
                         if(response){
                             this.success = response;
@@ -60,6 +75,9 @@
                     }
 
                 } 
+            },
+            async Login(){
+                
             }
         }
     }
@@ -106,7 +124,7 @@
 
     #login-box form div input{
         padding: 15px;
-        height: 45px;
+        height: 50px;
         box-sizing: border-box;
     }
 

@@ -9,18 +9,15 @@
 
 <script>
   import TopBar from  './components/TopBar.vue';
-  import { useUserStore, userGlobalStore } from './store/store';
+  import { useUserStore } from './store/store';
   import SuccessModal from './components/SuccessModal.vue';
   import FailureModal from './components/FailureModal.vue';
 
   export default {
     setup(){
       const userStore = useUserStore();
-      const globalStore = userGlobalStore();
 
       userStore.getUserData('http://localhost/system-ogloszeniowy/src/api/getUserData.php');
-
-      return { globalStore }
     },
     computed:{
       shouldShowTopbar(){

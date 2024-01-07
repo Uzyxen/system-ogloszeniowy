@@ -6,8 +6,8 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $_POST = json_decode(file_get_contents('php://input'), true);
 
-        if(isset($_POST['email'])){
-            $email = $_POST['email'];
+        if(isset($_POST['data'])){
+            $email = $_POST['data'];
     
             $query = $db->prepare('SELECT * FROM uzytkownicy WHERE email = :email');
     

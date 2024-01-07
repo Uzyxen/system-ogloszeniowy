@@ -12,16 +12,26 @@ export const fetchData = async (endpoint) => {
 };
 
 export const sendData = async (endpoint, data) => {
-    const response = await fetch(endpoint, {
+    let requestData;
+
+    if (typeof data === 'object') {
+        requestData = data;
+    } else {
+        requestData = { data };
+    }
+
+    const requestOptions = {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
-        credentials: 'include'
-    });
+        body: JSON.stringify(requestData)
+    };
 
-    if(!response.ok) {
+    const response = await fetch(endpoint, requestOptions);
+
+    if (!response.ok) {
         throw new Error('Błąd sieci');
     }
 
