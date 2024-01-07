@@ -1,6 +1,6 @@
 <template>
     <div id="login-box">
-        <div v-if="success == 'false'">
+        <div v-if="success == ''">
             <h2>Podaj adres email</h2>
             <p>aby się zalogować lub utworzyć konto</p>
 
@@ -52,7 +52,7 @@
                 email: '',
                 password: '',
                 emailErr: '',
-                success: 'false'
+                success: ''
             }
         },
         methods:{
@@ -68,6 +68,10 @@
 
                         if(response){
                             this.success = response;
+
+                            if(this.success === 'false'){
+                                this.$router.push({ name: 'rejestracja' });
+                            }
                         }
                     }catch(error){
                         console.error("Wystąpił nieoczekiwany błąd");

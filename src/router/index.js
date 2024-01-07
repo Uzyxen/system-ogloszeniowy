@@ -8,6 +8,7 @@ import LoginForm from '../views/LoginForm.vue';
 import ProfileView from '../views/ProfileView.vue';
 import UserSettings from '../views/UserSettings.vue';
 import OfferDetail from '../views/OfferDetail.vue';
+import RegisterForm from '../views/RegisterForm.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +18,7 @@ const router = createRouter({
     { path: '/kreator-cv', name: 'kreator-cv', component: CVCreator, meta: { showTopBar: true } },
     { path: '/moje-konto', name: 'moje-konto', component: MyAccount, meta: { showTopBar: true } },
     { path: '/logowanie', name: 'logowanie', component: LoginForm, meta: { showTopBar: false } },
+    { path: '/rejestracja', name: 'rejestracja', component: RegisterForm, meta: { showTopBar: false } },
     { path: '/profil', name: 'profil', component: ProfileView, meta: { showTopBar: true } },
     { path: '/ustawienia', name: 'ustawienia', component: UserSettings, meta: { showTopBar: true } },
     { path: '/oferta/:id', name: 'oferta', component: OfferDetail, meta: { showTopBar: true } }
