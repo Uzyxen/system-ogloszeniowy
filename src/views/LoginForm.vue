@@ -21,19 +21,21 @@
             <p id="for-companies">Logowanie dla firm</p>
         </div>
 
-        <div v-if="success == 'true'">
-            <h2>Podaj hasło</h2>
-            <p>aby zalogować się do portalu</p>
+        <transition>
+            <div v-if="success == 'true'">
+                <h2>Podaj hasło</h2>
+                <p>aby zalogować się do portalu</p>
 
-            <form @submit.prevent="Login" method="post"> 
-                <div>
-                    <label for="password">Hasło:</label>
-                    <input placeholder="Hasło" type="password" name="email" v-model="password">
-                    <span class="error">{{ passwordErr }}</span>
-                </div>
-                <button type="submit">Dalej</button>
-            </form>
-        </div>
+                <form @submit.prevent="Login" method="post"> 
+                    <div>
+                        <label for="password">Hasło:</label>
+                        <input placeholder="Hasło" type="password" name="email" v-model="password">
+                        <span class="error">{{ passwordErr }}</span>
+                    </div>
+                    <button type="submit">Dalej</button>
+                </form>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -180,5 +182,17 @@
         text-align: center;
         margin-top: 40px;
         color: #6244DB;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        opacity: 1;
+        transition: all 0.5s cubic-bezier(0.7,0.03,0.12,1);
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        transform: translateX(100px);
+        opacity: 0;
     }
 </style>
